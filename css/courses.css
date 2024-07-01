@@ -1,0 +1,140 @@
+.courses h2 {
+    padding-top: 100px;
+    margin-bottom: 10px;
+}
+
+.courses {
+    background-color: var(--color-bg1);
+    padding-top: 2rem;
+    box-shadow: inset 0 0 3rem rgba(64, 77, 197, 0.5);        
+}
+
+.courses p {
+    text-align: center;
+
+}
+
+.courses a {
+    text-align: center;
+}
+.courses__container {
+    display: grid;    
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding-top: 20px; 
+    margin-bottom: 2rem;   
+}
+
+.container__download {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    padding-top: 40px;
+}
+
+.download {
+    background-color: var(--color-bg); 
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;    
+}
+
+.download:hover {
+    background: var(--color-warning);    
+}
+
+.course {
+    border-radius: 10px;
+    background: var(--color-bg);
+    padding: 2rem;    
+    border: 1px solid ;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.course:hover {
+    background: transparent;
+    border-color: var(--color-danger);
+}
+
+.course__info {
+    text-align: center;
+}
+
+.course__info p {
+    padding-top: 1px;
+}
+
+.course__image {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    overflow: hidden; /* Ensure the zoom effect doesn't overflow the container */
+}
+
+.course__image img {
+    filter: saturate(1);
+    margin-top: 20px;
+    transition: transform 0.3s ease; /* Add transition for smooth zoom effect */
+}
+
+.course:hover img,
+.course__image img:active { /* Ensure zoom on hover and on touch */
+    transform: scale(1.1); /* Zoom effect */
+    filter: saturate(0); /* Optional: Add desaturate effect on zoom */
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 769px) {
+    .courses__container {
+        grid-template-columns: repeat(2, 1fr); /* Change to 3 columns on larger screens */
+    }
+
+    .course {
+        flex: 1 1 100%; /* Ensure each course takes up full row */
+        max-width: 100%; /* Ensure each course takes up full row */
+    }
+
+    /* Ensure specific order for courses */
+    .course:nth-child(1) {
+        order: 1;
+    }
+
+    .course:nth-child(2) {
+        order: 2;
+    }
+
+    .course:nth-child(3) {
+        order: 3;
+    }
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+    .courses__container {
+        grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on tablets */
+        gap: 1.5rem; /* Adjust gap on tablets */
+    }
+
+    .course {
+        padding: 1rem;
+    }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 600px) {
+    .courses__container {
+        grid-template-columns: 1fr; /* Change to 1 column on phones */
+        gap: 0.7rem; /* Adjust gap on phones */
+    }
+
+    .course {
+        padding: 1rem;
+    }
+
+    .course__info {
+        padding: 10px;
+    }
+}
